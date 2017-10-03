@@ -1,1 +1,2 @@
-export const LIST_SHOTS = 'LIST_SHOTS';
+export const LOAD_SHOTS_LIST = 'LOAD_SHOTS_LIST';
+export const PAGINATE = 'PAGINATE';

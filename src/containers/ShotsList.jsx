@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
 import Card from '../components/Card';
 import { connect } from 'react-redux';
-import { loadShotsList } from '../redux/actions';
+import { loadShotsList, paginate } from '../redux/actions';
+import loading from '../icons/loading.svg';
 
 const mapStateToProps = state => ({
   shots: state.shots,
-});
-
-const mapDispatchToProps = dispatch => ({
-  loadShotsList: () => dispatch(loadShotsList()),
+  page: state.page,
 });
 
 class ShotsList extends Component {
-  componentDidMount() {
-    // this.props.loadShotsList();
-    this.props.dispatch(loadShotsList());
+  constructor() {
+    super();
+    this.onScroll = this.onScroll.bind(this);
   }
-  render() {
-    const cards = this.props.shots.map((card, index) => (
+  componentDidMount() {
+    this.props.dispatch(loadShotsList(this.props.page));
+    window.addEventListener('scroll', this.onScroll);
+  }
+  onScroll = () => {
+    const { shots, isLoading, page } = this.props;
+
+    if (
+      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
+      shots.length
+    ) {
+      paginate(this.props.dispatch, page + 1);
+    }
+  }
+  getCards() {
+    const { shots } = this.props;
+
+    return shots.map((card, index) => (
       <div className="card-list__item" key={index}>
         <Card
           id={card.id}
@@ -28,10 +42,11 @@ class ShotsList extends Component {
         />
       </div>
     ));
-
+  }
+  render() {
     return(
       <div className="card-list">
-        {cards}
+        {this.getCards()}
       </div>
     );
   }

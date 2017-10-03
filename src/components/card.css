@@ -62,13 +62,14 @@
   display: flex;
   align-items: center;
   color: #ea4c89;
+  font-size: 12px;
 }
 
 .tool__icon {
   margin-right: 5px;
-  width: 20px;
+  width: 15px;
 }
 
 .tool__icon.tool__icon--fans {
-  width: 15px;
+  width: 13px;
 }
