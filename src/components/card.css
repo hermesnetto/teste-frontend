@@ -37,11 +37,21 @@
   margin: 0;
   padding: 0;
   position: relative;
+  overflow: hidden;
+}
+
+.card__img:hover img {
+  transform: scale(1.2);
+}
+
+.card__img:hover .card__name {
+  display: none;
 }
 
 .card__img img {
   width: 100%;
   display: block;
+  transition: transform 150ms ease-in;
 }
 
 .card__name {

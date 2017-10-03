@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from '../components/Card';
 import { connect } from 'react-redux';
 import { loadShotsList, paginate } from '../redux/actions';
-import loading from '../icons/loading.svg';
 
 const mapStateToProps = state => ({
   shots: state.shots,
@@ -19,7 +18,7 @@ class ShotsList extends Component {
     window.addEventListener('scroll', this.onScroll);
   }
   onScroll = () => {
-    const { shots, isLoading, page } = this.props;
+    const { shots, page } = this.props;
 
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
