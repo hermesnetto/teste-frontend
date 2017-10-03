@@ -1,0 +1,1 @@
+export const LIST_SHOTS = 'LIST_SHOTS';

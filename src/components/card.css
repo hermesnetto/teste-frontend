@@ -1,0 +1,74 @@
+/**
+ * Card
+ */
+ .card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.card__anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card__body {
+  padding: 0 10px;
+}
+
+.card__name {
+  margin: 0 0 10px 0;  
+}
+
+.card__tools {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card__tools__item + .card__tools__item{
+  margin-left: 15px;
+}
+
+.card__img {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.card__img img {
+  width: 100%;
+  display: block;
+}
+
+.card__name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 10px 10px;
+  margin: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0, rgba(0,0,0,0.08) 90%, rgba(0,0,0,0) 100%);
+  color: #fff;
+  width: 100%;
+}
+
+/**
+ * Tool
+ */
+.tool {
+  display: flex;
+  align-items: center;
+  color: #ea4c89;
+}
+
+.tool__icon {
+  margin-right: 5px;
+  width: 20px;
+}
+
+.tool__icon.tool__icon--fans {
+  width: 15px;
+}
