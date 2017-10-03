@@ -24,4 +24,22 @@ export const loadShotsList = (page = 1, perPage = 20) => ({
   payload: axios.get(`${url}/shots?page=${page}&access_token=${token}&per_page=${perPage}`)
 });
 
+/**
+ * Busca um shot pelo id
+ *
+ * @param {string} id - id do shot
+ */
+export const loadShot = id => ({
+  type: t.LOAD_SHOT,
+  payload: axios.get(`${url}/shots/${id}?access_token=${token}`)
+});
 
+/**
+ * Exibe a imagem do shot em seu maior tamanho
+ */
+export const showLargeImage = () => ({ type: t.SHOW_LARGE_IMAGE });
+
+/**
+ * Exibe a imagem do shot em seu tamanho medio
+ */
+export const hideLargeImage = () => ({ type: t.HIDE_LARGE_IMAGE });

@@ -34,7 +34,7 @@ class ShotsList extends Component {
       <div className="card-list__item" key={index}>
         <Card
           id={card.id}
-          thumb={card.images.normal}
+          thumb={card.images.teaser}
           views={card.views_count}
           likes={card.likes_count}
           name={card.title}

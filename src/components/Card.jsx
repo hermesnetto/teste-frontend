@@ -1,12 +1,13 @@
 import React from 'react';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
+import { Link } from 'react-router-dom';
 import './card.css';
 
 export default function Card({ thumb, views, likes, name, id }) {
   return(
     <div className="card">
-      <a className="card__anchor" href={id} title="Visualizar este shot">
+      <Link className="card__anchor" to={`/detalhe/${id}`} title="Visualizar este shot">
         <figure className="card__img">
           <img src={thumb} alt="" />
           <figcaption className="card__name">
@@ -27,7 +28,7 @@ export default function Card({ thumb, views, likes, name, id }) {
             </li>
           </ul>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
