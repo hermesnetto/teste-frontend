@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import {
 	loadShot,
 	showLargeImage,
-	hideLargeImage
+	hideLargeImage,
+	clearShot
 } from '../redux/actions';
 import ShotInfoData from '../components/ShotInfoData';
-import ShotInfoEmpty from '../components/ShotInfoEmpty';
 
 const mapStateToProps = state => ({
 	shot: state.shot,
@@ -14,6 +14,9 @@ const mapStateToProps = state => ({
 });
 
 class ShotInfo extends Component {
+	componentWillMount() {
+		this.props.dispatch(clearShot());
+	}
 	componentDidMount() {
 		this.props.dispatch(loadShot(this.props.match.params.id));
 	}
@@ -38,7 +41,7 @@ class ShotInfo extends Component {
 			)
 		}
 
-		return <ShotInfoEmpty />
+		return <div></div>;
 	}
 }
 

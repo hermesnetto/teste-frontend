@@ -34,6 +34,8 @@ export const loadShot = id => ({
   payload: axios.get(`${url}/shots/${id}?access_token=${token}`)
 });
 
+export const clearShot = () => ({ type: t.CLEAR_SHOT });
+
 /**
  * Exibe a imagem do shot em seu maior tamanho
  */
